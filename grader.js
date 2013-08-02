@@ -56,10 +56,26 @@ var checkHtmlFile = function(htmlfile, checksfile) {
     return out;
 };
 
-var urlFileExists = function(url, checksfile) {
-    rest.get(url).on('complete', function(result) {
-      return result;
-    });
+var checkUrlFile = function(checkurl, checksfile) {
+  debugger;
+  rest.get(checkurl).on('complete', function(result) {
+    debugger;
+    if (result instanceof Error) {
+      console.log("%s does not exist. Exiting.", checkurl);
+      process.exit(1);
+    } else {
+      debugger;
+      $ = cheerio.load(result);
+      var checks = loadChecks(checksfile).sort();
+      var out = {};
+      for(var ii in checks) {
+        var present = $(checks[ii]).length > 0;
+        out[checks[ii]] = present;
+      }
+      debugger;
+      return out;
+    }
+  });
 };
 
 var clone = function(fn) {
@@ -72,17 +88,40 @@ if(require.main == module) {
     program
         .option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
         .option('-f, --file <html_file>', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
-        .option('-u, --url <url>', 'Url of index.html', clone(urlFileExists), 'http://protected-spire-9170.herokuapp.com/index.html')
+        .option('-u, --checkurl <url>', 'Url of index.html') //, clone(urlFileExists), 'http://protected-spire-9170.herokuapp.com')
         .parse(process.argv);
-    var checkJson;
-    if (program.file) {
+    var checkJson, outJson;
+    var file = program.file;
+    var checkfile = program.checks;
+    var url = program.checkurl;
+    if (program.file && !url) {
       checkJson = checkHtmlFile(program.file, program.checks);
+      outJson = JSON.stringify(checkJson, null, 4);
+      //console.log("check file " + file + "\n" + outJson);
+      console.log(outJson);
     }
-    if (program.url) {
-      checkJson = urlFileExists(program.url, program.checks);
+    
+    if (url) {
+     rest.get(url.toString()).on('complete', function(result) {
+        if (result instanceof Error) {
+          console.log("%s url does not exist. Exiting.", url.toString());
+          process.exit(1);
+        } else {
+          $ = cheerio.load(result);
+          var checks = loadChecks(checkfile).sort();
+          var out = {};
+          for(var ii in checks) {
+            var present = $(checks[ii]).length > 0;
+            out[checks[ii]] = present;
+          }
+          outJson = JSON.stringify(out, null, 4);
+          //console.log("check url " + url.toString() + "\n" + outJson);
+          console.log(outJson);
+        }
+      });
+      
     }
-    var outJson = JSON.stringify(checkJson, null, 4);
-    console.log(outJson);
+   
 } else {
     exports.checkHtmlFile = checkHtmlFile;
 }

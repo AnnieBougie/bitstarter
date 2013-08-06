@@ -1,112 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>The Beekeeping Resource</title>
-    <link type="text/css" rel="stylesheet" 
-          href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-2.3.2.css">
-    <style type="text/css">
-      body {
-        padding-top: 20px;
-        padding-bottom: 40px;
-      }
-      .container {
-        width: 960px;
-      }
-      p.lead {
-        padding-top: 15px;
-      }
-      .navigation, .pitch, .section1, .section2, .faq, .footer {
-        padding: 10px 0px 10px 0px;
-      }
-      .video, .thermometer, .order, .social {
-        border: 1px dotted;
-        text-align: center;
-      }
-      .video {
-        /* Internal borders have 1px width, thus need to add 4 x 1px to 120px. */
-        height: 124px;
-        line-height: 124px;
-      }
-      .thermometer, .order, .social {
-        /* line-height to vertically center: http://phrogz.net/css/vertical-align/index.html */
-        height: 40px;
-        line-height: 40px;
-      }
-      div.row {
-        border: 1px solid;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row navigation">
-        <div class="span2 logo">
-          Logo
-        </div>
-        <div class="span6 learn">
-          Learn
-        </div>
-        <!-- <div class="span5 answers">
-          Answers
-        </div> -->
-        <div class="span4 contribute">
-          Contribute
-        </div>
-      </div>
-      <div class="row heading">
-        <div class="span12">
-          <h1>The Beekeeping Resource</h1>
-        </div>
-      </div> 
-     <div class="row subheading">
-        <div class="span12">
-          <p class="lead">Beekeeping is a fabulous hobby. It is an important part of our eocsystem, and is growing more popular in urban areas as well as rural locations.</p>
-        </div>
-      </div>
-      <div class="row pitch">
-        <div class="span6 video">
-            <p>Why keep bees?
-            <!-- <ul>
-              <li>Bees are good for the environment</li>
-              <li>Bees make honey</li>
-              <li>Bees are fascinating</li>
-              <li>Beels can be kept almost anywhere</li>
-            </ul> -->
-          </p>
-        </div>
-        <div class="span6">
-          <div class="thermometer">
-            Thermometer
-          </div>
-          <div class="order">
-            Order
-          </div>
-          <div class="social">
-            Social
-          </div>
-        </div>
-      </div>
-      <div class="row section1">
-        <div class="span12">
-          Keeping bees in the city can be a successful and rewarding adventure, but where does a new beekeeper go to for help? 
-        </div>
-      </div>
-      <div class="row section2">
-        <div class="span12">
-          Marketing Section 2
-        </div>
-      </div>
-      <div class="row faq">
-        <div class="span12">
-          FAQ
-        </div>
-      </div>
-      <div class="row footer">
-        <div class="span12">
-          Footer
+<head>
+  <meta name="viewport" content="width-device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>The Beekeeping Resource</title>
+  <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.no-icons.min.css">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
+  <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css">    
+  <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fjquery.js"></script>
+  <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap.js"></script>
+  <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800" 
+  rel="stylesheet" type="text/css">
+  <style type="text/css">
+  /* large desktop */
+  @media (min-width: 980px) { 
+    body {
+     padding-top: 60px;
+   }
+   .linediv-l {
+     border-right: 1px white solid;
+   }
+   .linediv-r {
+     border-left: 1px white solid;
+   }
+ }
+
+ /* Landscape phones and down */
+ @media (max-width: 480px) { 
+   .copy {
+     padding: 2.5% 10%;
+   }
+   .linediv-l {
+     border-bottom: 1px white solid;
+   }
+   .linediv-r {
+     border-top: 1px white solid;
+   }
+ }
+
+ body {
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+.heading, subheading {
+  font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+p.lead {
+  padding-top: 1.5%;
+  font-size: 24px;
+  line-height: 30px;
+}
+p {
+  font-size: 18px;
+  line-height: 24px;
+}      
+.pitch {
+  padding: 2.5% 0%;
+}
+.order {
+  padding: 2% 0%;
+}
+.actions {
+  background-color: #343434;
+  padding: 3% 0%;
+}
+.video, .thermometer, .order, .social, .statistics {
+  text-align: center;
+}
+.statistics h3, .statistics p {
+  color: white;
+}
+.copy {
+  padding-top: 2.5%;
+  padding-top: 2.5%;
+  text-align: justify;
+}
+.asset {
+  padding: 2.5% 0%;
+}
+.footer {
+  color: #cccccc;
+  text-align: center;
+}
+.footer p {
+  font-size: 11px;
+}
+.footer a {
+  color: #ccccff;
+
+}
+
+</style>
+</head>
+<body>
+
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar"
+        data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <xpan class="icon-bar"></span>
+        </button>
+        <a class="brand" href="#">The Beekeeping Resource</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">Answers</a></li>
+            <li><a href="#contact">Contribute</a></li>
+            <li><a href="#supplies">Supplies</a></li>
+          </ul>
         </div>
       </div>
     </div>
-  </body>
-</html>
+  </div> 
+
+  <div class="container">
+    <div class="row-fluid heading">
+      <div class="span12">
+        <h1>The Beekeeping Resource</h1>
+      </div>
+    </div>
+    <div class="row-fluid subheading">
+      <div class="span12">
+        <p class="lead>">Beekeeping is a fabulous hobby. It is an important part of our eocsystem, and is growing more popular in urban areas as well as rural locations.</p>
+      </div>
+    </div>
+    <div class="row-fluid pitch">
+      <div class="span5 offset1 video">
+        <img class="img-polaroid" src="http://placehold.it/480x300" />
+      </div>
+
+      <div class="span5 actions">
+        <div class="span8 offset2">
+          <div class="statistics">
+            <div class="span4">
+              <div class="linediv-l">
+                <h3>1000</h3>
+                <p>backers</p>
+              </div>
+            </div>
+            <div class="span4">
+              <div class="linediv-c">
+                <h3>$6000</h3>
+                <p> of $10,000</p>
+              </div>
+            </div>
+            <div class="span4">
+              <div class="linediv-r">
+                <h3>10</h3>
+                <p> days left</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="span10 offset1">
+          <div class="thermometer progress active">
+            <div class="bar bar-success" style="width: 60%;"></div>
+            <div class="bar bar-warning" style="width: 40%;"></div>
+          </div>
+        </div>
+        <div class="span6 offset3 order">
+          <button class="btn btn-success btn-large">Preorder</button>
+        </div>
+        <div class="span8 offset2 social">
+          <button class="btn btn-twitter"><i class="icon-twitter"> | Twitter</i></button>
+          <button class="btn btn-facebook"><i class="icon-facebook"> | Facebook</i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row-fluid section1">
+      <div class="span5 offset1 asset">
+        <img class="img-polaroid" src="http://placehold.it/480x300">
+
+      </div>
+      <div class="span5 copy">
+        <p>Dolor sit amet rock n roll star tony stark boogie nights hold steady keyboardist lando calrissian what a bounder off-piste, lando calrissian villain elit tony stark hold steady keyboardist boogie nights rock n roll star old man in pub el snort what a bounder pit fighter dolor sit amet derek griffiths off-piste, old man in pub el snort off-piste boogie nights Nostrilis tickler villain pit fighter dolor sit amet groomed lando calrissian hold steady keyboardist elit tony stark what a bounder godlike rock n roll star derek griffiths beefeater. Smashing good fun frightfully nice top gun karl marx.</p>
+      </div>
+    </div>
+    <div class="row-fluid section2">
+      <div class="span5 copy offset1 copy-right">
+        <p>
+          Great dictator French café patron groucho-a-like quis soup strainer tricky sneezes walrus nefarious, great dictator groucho-a-like walrus give him what-for give him what-for tricky sneezes soup strainer old man in pub omar sharif pit fighter quis French café patron nefarious? Facial accessory great dictator jimi hendrix super mario 118 118 barber shop quartet, super mario country baron great dictator facial accessory jimi hendrix marquess of queensbury Leonine freestyle 118 118 barber shop quartet cream bun disaster et charming villain doctor watson.
+        </p>
+      </div>
+      <div class="span5 asset">
+        <img class="img-polaroid" src="http://placehold.it/480x300">
+      </div>
+    </div>
+    <div class="row-fluid faq">
+      <div class="span10 offset1">
+      </div>
+      <h3>FAQ</h3>
+      <div class="accordian" id="accordian2">
+        <div class="accordian=group">
+          <div class="accoridian-heading">
+            <a class="accordian-toggle" data-toggle="collapse"
+            data-parent="#accordian2" href="#collapseOne">
+            What does FAQ stand for?
+          </a>
+        </div>
+        <div id="collapseOne" class="accordian-body collapse">
+          <div class="accordian-inner">Frequently Asked Question</div>
+        </div>
+      </div>
+    </div>
+    <div class="accordian-group">
+      <div class="accordian-heading">
+        <a class="accordian-toggle" data-toggle="collapse" data-parent="#accordian2" href="#collapseTwo">
+          What's a Frequenly Asked Question?
+        </div>
+        <div id="collapseTwo" class="accordian-body collapse">
+          <div class="accordian-inner">
+            A question which is commonly asked by users.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid footer">
+      <div class="span12">
+        <p> This work is licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0">By-sa 3.0</a>
+         but without all the cruft that would otherwise be put at the bottom of the page.</p>
+       </div>
+     </div>
+
+   </div>
+ </body>
+ </html>
